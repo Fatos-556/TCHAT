@@ -34,6 +34,7 @@ class IndexController extends AbstractController
                 'mercureAuthorization',
                 $token,
                 (new \DateTime())
+                    //todo: changer l'affichade de la date et mettre le bonne heure
                     ->add(new \DateInterval('PT2H')),
                 '/.well-known/mercure',
                 null,
