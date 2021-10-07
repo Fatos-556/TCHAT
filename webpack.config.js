@@ -62,7 +62,7 @@ Encore
     //.enableTypeScriptLoader()
 
     // uncomment if you use React
-    //.enableReactPreset()
+    .enableReactPreset()
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
@@ -72,7 +72,7 @@ Encore
     //.autoProvidejQuery()
 
 
-    .enableVueLoader()
+    // .enableVueLoader()
 ;
 
 module.exports = Encore.getWebpackConfig();

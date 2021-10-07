@@ -103,7 +103,6 @@ class MessageController extends AbstractController
     {
         $user = $this->getUser();
 
-//$user = $this->userRepository->findOneBy(['id'=> 3]);
         $recipient = $this->participantRepository->findParticipantByConverstionIdAndUserId(
             $conversation->getId(),
             $user->getId()
@@ -134,10 +133,13 @@ class MessageController extends AbstractController
         $update = new Update(
             [
                 sprintf("/conversations/%s", $conversation->getId()),
-                sprintf("/conversations/%s", $recipient->getUser()->getUsername()),
-                sprintf("/%s", $recipient->getUser()->getUsername())
+                sprintf("/conversations/%s", $recipient->getUser()->getUsername())
+//                sprintf("/%s", $recipient->getUser()->getUsername())
             ],
-            $messageSerialized
+            $messageSerialized,
+            [
+                sprintf("/%s", $recipient->getUser()->getUsername())
+            ]
         );
 
         $this->publisher->__invoke($update);
